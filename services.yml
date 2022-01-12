@@ -1,0 +1,16 @@
+---
+ - name: Install appache restart apache and install git
+   hosts: localhost
+   become: true
+   tasks:
+    - name : install appache2
+      package : name=apache2 state=present
+    - name : restart appache2
+      command : systemctl restart apache2
+      command : systemctl stop apache2
+    - name : uninstall appache2
+      package : name=apache2-2.4 state=absent
+    - name : Install git
+      package : name=git state=present
+    - name : install nginx
+      package : name=nginx state=present
